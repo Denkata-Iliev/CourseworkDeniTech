@@ -1,0 +1,40 @@
+.about {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    min-height: 100%;
+    margin-top: 0;
+
+    img:not(#clear-cart) {
+        border-radius: 50%;
+    }
+    
+    div {
+        p {
+            font-size: $font-size-big-screen;
+        }
+
+        h1 {
+            text-transform: none;
+        }
+
+        text-align: center;
+    }
+
+}
+
+
+@media screen and (max-width: $mobile-L-breakpoint) {
+    .about {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-breakpoint) {
+    .about {
+        flex-direction: column;
+    }
+}

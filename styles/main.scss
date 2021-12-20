@@ -1,0 +1,45 @@
+//helpers
+@import "reset";
+@import "variables";
+@import "spacing";
+
+//components
+@import "navigation";
+@import "products";
+
+//pages
+@import "home";
+@import "about";
+@import "contacts";
+@import "nyi";
+
+* {
+    box-sizing: border-box;
+    font-family: $font-cyrillic;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    color: $nav-text;
+    background-color: $nav-bg;
+    width: 100%;
+}
+
+main {
+    h1 {
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+//navigation colors
+$nav-bg: #0433cc;
+$nav-text: #9cc3c9;
+$nav-transition-color: rgba(0, 0, 0, 0.2);
+
+//font family and sizes 
+$font-cyrillic: 'Montserrat Alternates', sans-serif;
+$font-size-big-screen: 24px;
+$font-size-specs: 16px;
+$font-size-product-title: 30px;
+
+//misc
+$box-shadow: 5px 5px 15px grey;
+$width-height-product-img: 200px;
+
+//responsive breakpoints
+$tablet-breakpoint: 768px;
+$laptop-breakpoint: 1024px;
+$mobile-L-breakpoint: 425px;

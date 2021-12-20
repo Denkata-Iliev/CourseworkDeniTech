@@ -1,0 +1,22 @@
+.home-img {
+    .slide {
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        animation-name: slide;
+        animation-duration: 3s;
+
+        @keyframes slide {
+            from {opacity: 0.8}
+            to {opacity: 1}
+          }
+    }
+}
+
+@media screen and (max-width: $tablet-breakpoint) {
+    .home-img {
+        margin-top: 85px;
+    }
+} 

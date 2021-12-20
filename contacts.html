@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <title>Контакти</title>
+</head>
+<body>
+    
+    <nav>
+        <ul id="resp-nav">
+            <li id="mobile-menu">
+                <img src="images/hamburger-menu.png" alt="hamburger-menu">
+            <li class="p20">
+                <a href="index.html">Начало</a>
+            </li>
+            <li class="p20">
+                <a href="rigs.html">Компютри</a>
+            </li>
+
+            <li class="dropdown p20">
+                Хардуер ▽
+                <ul class="drop-items mt15">
+                    <li class="p10">
+                        <a href="processors.html">Процесори</a>
+                    </li>
+                    <li class="p10">
+                        <a href="RAM.html">РАМ Памет</a>
+                    </li>
+                    <li class="p10">
+                        <a href="GPUs.html">Видеокарти</a>
+                    </li>
+                    <li class="p10">
+                        <a href="motherboards.html">Дънни платки</a>
+                    </li>
+                    <li class="p10">
+                        <a href="PSUs.html">Захранвания</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="p20">
+                <a href="peripherals.html">Периферия</a>
+            </li>
+            <li class="p20">
+                <a href="gaming-chairs.html">Гейминг столове</a>
+            </li>
+            <li class="p20">
+                <a href="about.html">За нас</a>
+            </li>
+            <li class="p20">
+                <a href="contacts.html">Контакти</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="contact-main">
+        <div id="total-wrap">
+            <img src="images/total-cart.png" alt="total-cart" id="clear-cart">
+            <span id="cart-total"></span>
+        </div>
+
+        <div class="contact-info mb25">
+            <div class="email">
+                <img src="images/email.png" alt="email">
+                <span>Email</span>
+                <p>support@denitech.com</p>
+            </div>
+            <div class="phone">
+                <img src="images/phone.png" alt="phone">
+                <span>Номер</span>
+                <p>0887766554</p>
+            </div>
+            <div class="address">
+                <img src="images/address.png" alt="address">
+                <span>Адрес</span>
+                <p>ул. "Пловдивско шосе" 11Б, София</p>
+            </div>
+        </div>
+
+        <h2>Обратна връзка</h2>
+        <div>
+            <form class="comment-form" autocomplete="off" id="form">
+                <label for="name">Име</label>
+                <input class="mb10" type="text" name="name" id="name" placeholder="Вашето име...">
+                <p id="name-error"></p>
+
+                <label for="email">Имейл</label>
+                <input class="mb10" type="email" name="email" id="email" placeholder="Вашият имейл...">
+                <p id="email-error"></p>
+
+                <label for="comment">Коментар</label>
+                <textarea class="mb10" name="comment" id="comment" cols="50" rows="10" placeholder="Вашият коментар..."></textarea>
+                <p id="comment-error"></p>
+
+                <input type="submit" value="Изпрати">
+            </form>
+
+        </div>
+
+        <h1 class="mt25">Работно време</h1>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Понеделник</th>
+                    <th>Вторник</th>
+                    <th>Сряда</th>
+                    <th>Четвъртък</th>
+                    <th>Петък</th>
+                    <th>Събота</th>
+                    <th>Неделя</th>
+                </tr>
+                <tr>
+                    <td>07:00 - 12:00</td>
+                    <td>07:00 - 12:00</td>
+                    <td>07:00 - 12:00</td>
+                    <td>07:00 - 12:00</td>
+                    <td>07:00 - 12:00</td>
+                    <td>09:00 - 12:00</td>
+                    <td rowspan="3">Почивен ден</td>
+                </tr>
+                <tr>
+                    <td>Обедна почивка: 12:00 - 13:30</td>
+                    <td>Обедна почивка: 12:00 - 13:30</td>
+                    <td>Обедна почивка: 12:00 - 13:30</td>
+                    <td>Обедна почивка: 12:00 - 13:30</td>
+                    <td>Обедна почивка: 12:00 - 13:30</td>
+                    <td>Обедна почивка: 12:00 - 13:30</td>
+                </tr>
+                <tr>
+                    <td>13:30 - 19:00</td>
+                    <td>13:30 - 19:00</td>
+                    <td>13:30 - 19:00</td>
+                    <td>13:30 - 19:00</td>
+                    <td>13:30 - 19:00</td>
+                    <td>13:30 - 17:00</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    
+    <footer class="p5 mt5">
+        <h3>Copyright 2021 © Денислав Илиев</h3>
+    </footer>
+    
+    <script src="scripts/shopping.js"></script>
+    <script src="scripts/contact-submit.js"></script>
+    <script src="scripts/resp-nav.js"></script>
+</body>
+</html>
