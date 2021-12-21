@@ -2523,7 +2523,7 @@ table tr:nth-child(even):nth-child(even) {
   background-color: #dddddd;
 }
 
-table tr:nth-child(even):nth-child(2) td:last-child {
+table tr:nth-child(even):nth-child(2) td:last-child#day-off {
   background-color: white;
 }
 
@@ -2561,6 +2561,77 @@ table tr:nth-child(even):nth-child(2) td:last-child {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+article {
+  margin-top: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+article table {
+  width: 70%;
+}
+
+article table tr td {
+  border: none;
+}
+
+article table tr td p {
+  font-size: 24px;
+}
+
+article table tr td img {
+  width: 100px;
+  height: 100px;
+}
+
+article table tr td img.cross {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  width: 64px;
+  height: 64px;
+}
+
+article table tr td:last-child {
+  text-align: center;
+}
+
+article .total-price-wrapper {
+  width: 30%;
+  height: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+}
+
+article .total-price-wrapper .total {
+  border-radius: 5px;
+  background-color: rgba(4, 51, 204, 0.2);
+  text-align: center;
+}
+
+article .total-price-wrapper .total #price {
+  color: #A4303F;
+  font-size: 55px;
+}
+
+article .total-price-wrapper .total button {
+  width: 100%;
+  background-color: #0433cc;
+  border-radius: 5px;
+  border: none;
+  font-size: 29px;
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
 }
 
 * {
