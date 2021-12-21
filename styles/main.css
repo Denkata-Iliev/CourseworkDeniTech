@@ -2580,6 +2580,7 @@ article table {
 
 article table tr td {
   border: none;
+  font-size: 24px;
 }
 
 article table tr td p {

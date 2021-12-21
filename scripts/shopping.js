@@ -12,10 +12,11 @@ clearCartElement.addEventListener("click", clearCart);
 for (let i = 0; i < cart.length; i++) {
   const element = cart[i];
   element.addEventListener("click", function () {
-    const image = productImages[i].firstElementChild.firstElementChild;
+    const image = productImages[i].firstElementChild.innerHTML;
     const title = productTitles[i].firstElementChild.innerHTML;
     const price = productPrices[i].firstElementChild.innerHTML;
     const singleProduct = [image, title, price];
+
     products.push(singleProduct);
     
     addToCart();

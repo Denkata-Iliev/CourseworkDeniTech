@@ -9,6 +9,7 @@ article {
         tr {
             td {
                 border: none;
+                font-size: $font-size-big-screen;
 
                 p {
                     font-size: $font-size-big-screen;
@@ -47,6 +48,7 @@ article {
                 color: $price-color;
                 font-size: $font-size-price;
             }
+
             button {
                 width: 100%;
                 background-color: $nav-bg;
