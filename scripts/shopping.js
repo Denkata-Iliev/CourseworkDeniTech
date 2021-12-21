@@ -27,6 +27,7 @@ for (let i = 0; i < cart.length; i++) {
 function initTotalCart() {
   if (localStorage.cartClicks) {
     totalCart.innerHTML = localStorage.cartClicks;
+    products.push(localStorage.products);
   }
 }
 

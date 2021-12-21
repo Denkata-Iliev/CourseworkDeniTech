@@ -1,34 +1,32 @@
 const tBody = document.getElementById("table-body");
-const products = localStorage.products;
-// const cross = '<img src="images/cross.png" alt="cross-icon" class="cross">';
+const products = localStorage.getItem("products");
+
 const crossIconSrc = "images/cross.png";
 const crossIconAlt = "cross-icon";
 const crossIconClass = "cross";
 
-function ss() {
-    
-}
-
-
-function kurec() {
+function populateTable() {
     const productSplit = products.split(",");
+    console.log(productSplit);
     
     if (Number(localStorage.cartClicks) > 0) {
-        for (let i = 0; i < productSplit.length / 3; i++) {
+        for (let i = 0; i < productSplit.length; i += 3) {
             const row = document.createElement("tr");
-            const cells = [];
             
-            for (let j = 0; j < productSplit.length; j++) {
-                const cell = document.createElement("td");
-                cell.innerHTML = productSplit[j];
-                cells[j] = cell;
-            }
+            const imageTd = document.createElement("td");
+            imageTd.innerHTML = productSplit[i];
+
+            const titleTd = document.createElement("td");
+            titleTd.innerHTML = productSplit[i + 1];
+
+            const priceTd = document.createElement("td");
+            priceTd.innerHTML = productSplit[i + 2];
+
+            row.appendChild(imageTd);
+            row.appendChild(titleTd);
+            row.appendChild(priceTd);
     
             const crossIconTd = createCrossIconTd();
-    
-            for (let j = 0; j < cells.length; j++) {
-                row.appendChild(cells[j]);
-            }
     
             row.appendChild(crossIconTd);
     
@@ -47,3 +45,5 @@ function createCrossIconTd() {
     crossIconTd.appendChild(crossIcon);
     return crossIconTd;
 }
+
+populateTable();
