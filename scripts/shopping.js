@@ -27,7 +27,10 @@ for (let i = 0; i < cart.length; i++) {
 function initTotalCart() {
   if (localStorage.cartClicks) {
     totalCart.innerHTML = localStorage.cartClicks;
+  }
+  if (localStorage.products) {
     products.push(localStorage.products);
+
   }
 }
 
