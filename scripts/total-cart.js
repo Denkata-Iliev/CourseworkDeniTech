@@ -1,5 +1,6 @@
 const tBody = document.getElementById("table-body");
 const products = localStorage.getItem("products");
+const totalPriceEl = document.getElementById("price");
 
 const crossIconSrc = "images/cross.png";
 const crossIconAlt = "cross-icon";
@@ -8,6 +9,7 @@ const crossIconClass = "cross";
 function populateTable() {
     const productSplit = products.split(",");
     console.log(productSplit);
+    let totalPrice = 0;
     
     if (Number(localStorage.cartClicks) > 0) {
         for (let i = 0; i < productSplit.length; i += 3) {
@@ -21,6 +23,7 @@ function populateTable() {
 
             const priceTd = document.createElement("td");
             priceTd.innerHTML = productSplit[i + 2];
+            totalPrice += Number(priceTd.innerHTML.substring(0, priceTd.innerHTML.indexOf("лв")))
 
             row.appendChild(imageTd);
             row.appendChild(titleTd);
@@ -32,8 +35,9 @@ function populateTable() {
     
             tBody.appendChild(row);
         }
-        
     }
+
+    totalPriceEl.innerHTML = totalPrice + "лв."; 
 }
 
 function createCrossIconTd() {
