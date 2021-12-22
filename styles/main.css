@@ -2580,6 +2580,7 @@ article table {
 
 article table tr td {
   border: none;
+  vertical-align: middle;
   font-size: 24px;
 }
 
@@ -2597,9 +2598,10 @@ article table tr td img.cross {
       justify-self: end;
   width: 64px;
   height: 64px;
+  cursor: pointer;
 }
 
-article table tr td:last-child {
+article table tr td:last-child, article table tr td:not(:first-child) {
   text-align: center;
 }
 

@@ -9,6 +9,7 @@ article {
         tr {
             td {
                 border: none;
+                vertical-align: middle;
                 font-size: $font-size-big-screen;
 
                 p {
@@ -24,9 +25,10 @@ article {
                     justify-self: end;
                     width: 64px;
                     height: 64px;
+                    cursor: pointer;
                 }
 
-                &:last-child {
+                &:last-child, &:not(:first-child) {
                     text-align: center;
                 }
             }            
