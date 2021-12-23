@@ -62,8 +62,6 @@ dropDownListItem.addEventListener("click", function () {
 
 	isDropdownExpanded = !isDropdownExpanded;
     }
-    
-    
 });
 
 
