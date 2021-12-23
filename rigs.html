@@ -57,47 +57,11 @@
         </ul>
     </nav>
 
-    <!-- Опитай да направиш глобалната количка да води до страница, която list-ва всички продукти до сега
-         За reference от w3s:
-         <!DOCTYPE html>
-         <html>
-            <body id="kurec">
-
-                <ul id="myList1"><li>Coffee</li><li>Tea</li></ul>
-                <ul id="myList2"><li>Water</li><li>Milk</li></ul>
-
-                <p>Click the button to copy an item from one list to another.</p>
-
-                <button onclick="myFunction()">Try it</button>
-
-                <p id="kur2">Try changing the <em>deep</em> parameter to false, and only an empty LI element will be cloned.</p>
-
-            <script>
-                function myFunction() {
-                    var itm = document.getElementById("myList2").lastChild;
-                    var cln = itm.cloneNode(true);
-                    const cars = [];
-                    cars[0] = cln;
-                    cars[1] = document.getElementById("kur2").cloneNode(true);
-                    //document.getElementById("kur2").innerHTML = cars[0];
-                    document.getElementById("kurec").appendChild(cars[1]);
-                }
-            </script>
-
-            </body>
-         </html>
-        използвай cloneNode, като записваш всичко в масив и след това в новата страница просто ще се обхожда масива, като към section примерно
-        ще appendChild(arr[i]), като за смятане на цената:
-                                                let test = document.getElementsByClassName("price-buy")[0].firstElementChild.innerHTML;
-                                                console.log(Number(test.substring(0, test.indexOf("лв"))));
-
-        И някъде трябва да има един Х или нещо, което да трие всичките елементи. Ако може да се трие избирателно - още по-добре, ама ще видим
-        Броят на кошниците и на product-wrapper-ите е един и същ => индексите са равни => в цикъл можем да вземем правилния product-wrapper
-    -->
-
     <main>
         <div id="total-wrap">
-            <img src="images/total-cart.png" alt="total-cart" id="clear-cart">
+            <a href="cart.html">
+                <img src="images/total-cart.png" alt="total-cart" id="clear-cart">
+            </a>
             <span id="cart-total"></span>
         </div>
         

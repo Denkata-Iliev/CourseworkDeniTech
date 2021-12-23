@@ -1,13 +1,10 @@
 const cart = document.getElementsByClassName("cart");
 const totalCart = document.getElementById("cart-total");
-const clearCartElement = document.getElementById("clear-cart");
 
 const productImages = document.getElementsByClassName("product-wrapper");
 const productTitles = document.getElementsByClassName("title-specs");
 const productPrices = document.getElementsByClassName("price-buy");
 const products = [];
-
-clearCartElement.addEventListener("click", clearCart);
 
 for (let i = 0; i < cart.length; i++) {
   const element = cart[i];
@@ -30,7 +27,6 @@ function initTotalCart() {
   }
   if (localStorage.products) {
     products.push(localStorage.products);
-
   }
 }
 
@@ -43,14 +39,5 @@ function addToCart() {
     } else {
       localStorage.cartClicks = 1;
     }
-    totalCart.innerHTML = localStorage.cartClicks;
-
-    
-}
-
-function clearCart() {
-  localStorage.cartClicks -= Number(localStorage.cartClicks);
-  totalCart.innerHTML = localStorage.cartClicks;
-  products.length = 0;
-  localStorage.setItem("products", products);
+    totalCart.innerHTML = localStorage.cartClicks;    
 }

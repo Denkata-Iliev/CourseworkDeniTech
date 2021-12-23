@@ -3,6 +3,7 @@ article {
     display: flex;
     width: 100%;
     justify-content: start;
+    min-height: 100%;
 
     table {
         width: 70%;
@@ -21,13 +22,6 @@ article {
                     height: $width-height-product-img / 2;
                 }
 
-                img.cross {
-                    justify-self: end;
-                    width: 64px;
-                    height: 64px;
-                    cursor: pointer;
-                }
-
                 &:last-child, &:not(:first-child) {
                     text-align: center;
                 }
@@ -40,29 +34,60 @@ article {
         height: 100%;
         position: sticky;
         top: 70px;
+        display: flex;
+        flex-direction: column;
 
         .total {
             border-radius: 5px;
             background-color: rgba(4, 51, 204, 0.2);
             text-align: center;
+            align-items: center;
 
             #price {
                 color: $price-color;
                 font-size: $font-size-price;
             }
+        }
+
+        .btn-wrapper {
+            width: 100%;
+            // position: absolute;
+            // bottom: 0;
+            // left: 0;
+            align-items: flex-end;
 
             button {
                 width: 100%;
-                background-color: $nav-bg;
+                cursor: pointer;
+                color: white;
+                font-size: $font-size-big-screen + 5px;
                 border-radius: 5px;
                 border: none;
-                font-size: $font-size-big-screen + 5px;
-                color: white;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                cursor: pointer;
             }
+            
+            button#order-btn {
+                background-color: $nav-bg;
+            }
+
+            button#clear-btn {
+                background-color: red;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-breakpoint) {
+    article {
+        margin-top: 50px;
+        flex-direction: column;
+        align-items: center;
+
+        table {
+            width: 100%;
+        }
+
+        .total-price-wrapper {
+            width: 100%;
         }
     }
 }

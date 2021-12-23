@@ -2269,10 +2269,6 @@ main div#total-wrap {
   top: 11%;
 }
 
-main div#total-wrap img {
-  cursor: pointer;
-}
-
 main div#total-wrap span {
   position: absolute;
   top: -1px;
@@ -2572,6 +2568,7 @@ article {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+  min-height: 100%;
 }
 
 article table {
@@ -2593,14 +2590,6 @@ article table tr td img {
   height: 100px;
 }
 
-article table tr td img.cross {
-  -ms-grid-column-align: end;
-      justify-self: end;
-  width: 64px;
-  height: 64px;
-  cursor: pointer;
-}
-
 article table tr td:last-child, article table tr td:not(:first-child) {
   text-align: center;
 }
@@ -2611,12 +2600,22 @@ article .total-price-wrapper {
   position: -webkit-sticky;
   position: sticky;
   top: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 article .total-price-wrapper .total {
   border-radius: 5px;
   background-color: rgba(4, 51, 204, 0.2);
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 article .total-price-wrapper .total #price {
@@ -2624,17 +2623,47 @@ article .total-price-wrapper .total #price {
   font-size: 55px;
 }
 
-article .total-price-wrapper .total button {
+article .total-price-wrapper .btn-wrapper {
   width: 100%;
-  background-color: #0433cc;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+article .total-price-wrapper .btn-wrapper button {
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  font-size: 29px;
   border-radius: 5px;
   border: none;
-  font-size: 29px;
-  color: white;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  cursor: pointer;
+}
+
+article .total-price-wrapper .btn-wrapper button#order-btn {
+  background-color: #0433cc;
+}
+
+article .total-price-wrapper .btn-wrapper button#clear-btn {
+  background-color: red;
+}
+
+@media screen and (max-width: 768px) {
+  article {
+    margin-top: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  article table {
+    width: 100%;
+  }
+  article .total-price-wrapper {
+    width: 100%;
+  }
 }
 
 * {
