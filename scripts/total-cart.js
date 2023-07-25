@@ -1,58 +1,101 @@
-const tBody = document.getElementById("table-body");
-const products = localStorage.products;
-const totalPriceEl = document.getElementById("price");
+const tBody = document.getElementById('table-body');
+const totalPriceEl = document.getElementById('price');
 
-const orderBtn = document.getElementById("order-btn");
-const clearBtn = document.getElementById("clear-btn");
+const orderBtn = document.getElementById('order-btn');
+const clearBtn = document.getElementById('clear-btn');
 
-orderBtn.addEventListener("click", order);
-clearBtn.addEventListener("click", clearCart);
+orderBtn.addEventListener('click', order);
+clearBtn.addEventListener('click', clearCart);
+
+const DELETE_ICON_SIZE = '64px';
+const DELETE_ICON_HTML = `<img src='images/cross.png' alt='delete-icon' style='width: ${DELETE_ICON_SIZE}; height: ${DELETE_ICON_SIZE}'/>`;
 
 let totalPrice = 0;
+let products = [];
 function populateTable() {
-    const productSplit = products.split(",");
-    console.log(products);
-    
-    if (Number(localStorage.cartClicks) > 0) {
-        for (let i = 0; i < productSplit.length; i += 3) {
-            const row = document.createElement("tr");
-            
-            const imageTd = document.createElement("td");
-            imageTd.innerHTML = productSplit[i];
-
-            const titleTd = document.createElement("td");
-            titleTd.innerHTML = productSplit[i + 1];
-
-            const priceTd = document.createElement("td");
-            priceTd.innerHTML = productSplit[i + 2];
-            priceTd.className = "product-price";
-            totalPrice += Number(priceTd.innerHTML.substring(0, priceTd.innerHTML.indexOf("лв")))
-
-            row.appendChild(imageTd);
-            row.appendChild(titleTd);
-            row.appendChild(priceTd);
-    
-            tBody.appendChild(row);
-        }
-    } else {
-        const row = document.createElement("tr");
-        const td = document.createElement("td");
-        td.innerHTML = "Все още няма нищо в количката.";
-        row.appendChild(td);
-        tBody.appendChild(row);
+    if (localStorage.products) {
+        products = JSON.parse(localStorage.products);
     }
 
-    totalPriceEl.innerHTML = totalPrice + "лв."; 
+    console.log(products);
+
+    if (products.length <= 0) {
+        noProductsInCart();
+        return;
+    }
+
+    products.forEach(element => {
+        const row = document.createElement('tr');
+
+        const imageTd = createElementWithInnerHtml('td', element.image);
+
+        const titleTd = createElementWithInnerHtml('td', element.title);
+
+        const priceTd = createElementWithInnerHtml('td', element.price);
+        priceTd.className = 'product-price';
+
+        totalPrice += parsePriceFromText(priceTd.innerHTML);
+
+        const crossTd = createElementWithInnerHtml('td', DELETE_ICON_HTML);
+        crossTd.style.cursor = 'pointer';
+        crossTd.addEventListener('click', () => removeItemFromCart(element, priceTd.innerHTML, row));
+
+        row.appendChild(imageTd);
+        row.appendChild(titleTd);
+        row.appendChild(priceTd);
+        row.appendChild(crossTd);
+
+        tBody.appendChild(row);
+    })
+
+    updateTotalPriceElement(totalPrice);
 }
 
 populateTable();
 
+function noProductsInCart() {
+    const row = document.createElement('tr');
+    const td = document.createElement('td');
+    td.innerHTML = 'Все още няма нищо в количката.';
+    row.appendChild(td);
+    tBody.appendChild(row);
+    totalPriceEl.textContent = '0лв.';
+}
+
+function removeItemFromCart(elementToRemove, priceText, row) {
+    products = products.filter(el => el.id !== elementToRemove.id);
+    totalPrice -= parsePriceFromText(priceText);
+    updateTotalPriceElement(totalPrice);
+
+    tBody.removeChild(row);
+
+    localStorage.products = JSON.stringify(products);
+    localStorage.cartClicks = Number(localStorage.cartClicks) - 1;
+
+    if (products.length <= 0) {
+        noProductsInCart();
+    }
+}
+
+function createElementWithInnerHtml(elementTag, innerHtml) {
+    const el = document.createElement(elementTag);
+    el.innerHTML = innerHtml;
+
+    return el
+}
+
+function updateTotalPriceElement(totalPrice) {
+    totalPriceEl.textContent = `${totalPrice}лв.`;
+}
+
+function parsePriceFromText(text) {
+    return Number(text.substring(0, text.indexOf('лв')))
+}
+
 function clearCart() {
-    const confirmText = "Сигурни ли сте, че искате да изчистите количката?";
+    const confirmText = 'Сигурни ли сте, че искате да изчистите количката?';
     if (confirm(confirmText)) {
         clearTableAndLocalStorage();
-    } else {
-        return;
     }
 }
 
@@ -63,7 +106,8 @@ function order() {
 }
 
 function clearTableAndLocalStorage() {
-  localStorage.cartClicks -= Number(localStorage.cartClicks);
-  localStorage.products = [];
-  location.reload();
+    localStorage.cartClicks -= Number(localStorage.cartClicks);
+    localStorage.id = 0;
+    localStorage.products = [];
+    location.reload();
 }
