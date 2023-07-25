@@ -54,12 +54,20 @@ function populateTable() {
 populateTable();
 
 function noProductsInCart() {
+    disableButtonAndSetBackgroundColor(clearBtn, 'rgba(255, 0, 0, 0.5)');
+    disableButtonAndSetBackgroundColor(orderBtn, 'rgba(4, 51, 204, 0.5)');
+
     const row = document.createElement('tr');
     const td = document.createElement('td');
     td.innerHTML = 'Все още няма нищо в количката.';
     row.appendChild(td);
     tBody.appendChild(row);
     totalPriceEl.textContent = '0лв.';
+}
+
+function disableButtonAndSetBackgroundColor(button, bgColor) {
+    button.disabled = true;
+    button.style.backgroundColor = bgColor;
 }
 
 function removeItemFromCart(elementToRemove, priceText, row) {
